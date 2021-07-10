@@ -1,6 +1,8 @@
 package com.udacity.pricing.domain.price;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.math.BigDecimal;
 
@@ -15,6 +17,7 @@ public class Price {
      * Marking Vehicle id as identifier for price assuming that a vehicle can have only one price
      */
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long vehicleId;
     private String currency;
     private BigDecimal price;
@@ -22,10 +25,9 @@ public class Price {
     public Price() {
     }
 
-    public Price(String currency, BigDecimal price, Long vehicleId) {
+    public Price(String currency, BigDecimal price) {
         this.currency = currency;
         this.price = price;
-        this.vehicleId = vehicleId;
     }
 
     public String getCurrency() {

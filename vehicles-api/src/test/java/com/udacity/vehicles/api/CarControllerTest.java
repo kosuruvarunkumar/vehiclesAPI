@@ -128,6 +128,7 @@ public class CarControllerTest {
          *   should utilize the car from `getCar()` below.
          */
         Car car = getCar();
+        car.setId(1L);
         mvc.perform(delete(new URI("/cars/1"))).andExpect(status().isNoContent());
     }
 
